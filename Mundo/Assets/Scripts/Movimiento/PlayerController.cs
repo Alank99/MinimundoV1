@@ -1,0 +1,107 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Interfaces;
+
+namespace Player
+{
+    public class PlayerController : MonoBehaviour
+    {
+
+        public LayerMask groundMask;
+        public Material skybox;
+
+
+
+        private ICharacterMovement character;
+
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            character = new Character.Character(GetComponent<CharacterController>(), groundMask);
+        }
+
+        // Update is called once per frame
+        float temp = 0;
+        void Update()
+        {
+            Vector3 movementDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+            if (movementDirection != Vector3.zero)
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    
+                    //aumentar la velocidad del personaje por intervalos hasta un maximo de 2
+
+                    if (temp < 2)
+                    {
+                        temp += Time.deltaTime;
+                    }
+                    else
+                    {
+                        temp = 2;
+                    }
+                    character.Move(movementDirection * temp);
+                }
+                else
+                {
+                    if (temp > 1)
+                    {
+                        temp -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        temp = 1;
+                    }
+                    character.Move(movementDirection * temp);
+                }
+            }
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                character.Jump();
+            }
+
+            // Ground character
+            character.GroundCharacter();
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+
+            
+            if( other.CompareTag("cancion"))
+            {
+                //cambio el color del skybox
+                RenderSettings.skybox = skybox;
+                
+
+                //Reproducir o detener la cancion
+
+                var actcancion = GetComponentInChildren<AudioSource>();
+                if (actcancion.isPlaying)
+                {
+                    actcancion.Stop();
+                }
+                else
+                {
+                    actcancion.Play();
+                }
+            }
+                
+            if (other.CompareTag("ActvTime"))
+            {
+                ControladorTimeline controlador = other.GetComponent<ControladorTimeline>();
+                controlador.PlayTimeline();
+            }
+        }
+
+
+
+
+    }
+}
+
