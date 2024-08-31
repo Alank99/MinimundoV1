@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Interfaces;
 
-namespace Player
-{
     public class PlayerController : MonoBehaviour
     {
 
@@ -15,11 +13,14 @@ namespace Player
 
         private ICharacterMovement character;
 
+        private AudioController audioController ;
+
 
         // Start is called before the first frame update
         void Start()
         {
             character = new Character.Character(GetComponent<CharacterController>(), groundMask);
+            audioController = GetComponentInChildren<AudioController>();
         }
 
         // Update is called once per frame
@@ -97,11 +98,28 @@ namespace Player
                 ControladorTimeline controlador = other.GetComponent<ControladorTimeline>();
                 controlador.PlayTimeline();
             }
+
+            if(other.CompareTag("Arena"))
+            {
+                audioController.groundType = 0;
+            }
+            if (other.CompareTag("Pasto"))
+            {
+                audioController.groundType = 1;
+            }
+            if (other.CompareTag("Grava"))
+            {
+                audioController.groundType = 2;
+            }
+            if (other.CompareTag("Agua"))
+            {
+                audioController.groundType = 3;
+            }
         }
 
 
 
 
     }
-}
+
 
