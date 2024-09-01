@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
+// Script que se encarga de controlar la ejecución de una Timeline
 public class ControladorTimeline : MonoBehaviour
 {
 

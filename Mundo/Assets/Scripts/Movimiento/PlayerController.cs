@@ -46,6 +46,7 @@ using Interfaces;
                     }
                     character.Move(movementDirection * temp);
                 }
+                //si se suelta la tecla shift, el personaje se mueve a velocidad normal
                 else
                 {
                     if (temp > 1)
@@ -103,7 +104,7 @@ using Interfaces;
             {
                 audioController.groundType = 0;
             }
-            if (other.CompareTag("Pasto"))
+            if (other.CompareTag("Fango"))
             {
                 audioController.groundType = 1;
             }

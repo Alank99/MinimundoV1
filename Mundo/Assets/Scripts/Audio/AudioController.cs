@@ -18,7 +18,8 @@ public class AudioController : MonoBehaviour
 
 
     
-    // Start is called before the first frame update
+    // Este método se encarga de reproducir el audio correspondiente al tipo de terreno en el que se encuentra el jugador y al tipo de animación que está realizando
+    // Siendo que 1 es caminar, 2 es correr y 3 es saltar
     public void PlayAudio(int tipoAnimacion)
     {
         switch (groundType)

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Clase que se encarga de instanciar objetos con el script Agua y destruirlos cuando llegan a la posición y=0
+
 public class SplashAgua : MonoBehaviour
 {
 
@@ -30,6 +33,7 @@ public class SplashAgua : MonoBehaviour
         //instanciar de forma aleatoria las gotas relativas a la fuente
         if (gotas.Count < cantidadGotas)
         {
+            //generar gotas y definir su destino
             for (int i = gotas.Count ; i < cantidadGotas; i++)
             {
                 GameObject go = Instantiate(gota, gameObject.transform.position, Quaternion.identity);
@@ -41,7 +45,7 @@ public class SplashAgua : MonoBehaviour
             }
         }
 
-        
+        //destruir gotas que llegan a la posición y=0
         for (int i = gotas.Count - 1; i >= 0; i--)
         {
             Agua a = gotas[i];

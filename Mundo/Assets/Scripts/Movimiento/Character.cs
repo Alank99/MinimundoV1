@@ -9,7 +9,6 @@ namespace Character
     public class Character : ICharacterMovement
     {
         private Vector3 playerVelocity;
-        private bool groundedPlayer;
         private float playerSpeed = 4.0f;
         private float jumpHeight = 3f;
         private float gravityValue = -9.81f;
@@ -83,11 +82,10 @@ namespace Character
 
 
             _animator.SetBool("Jump", true);
-            //_animator.SetTrigger(RandomAnimation);
-            //_animator.PlayAnimationByHash(_randomAnimationHash);
-            //_animator.SetTrigger(RandomAnimation);
+
         }
 
+        
         public void GroundCharacter()
         {
             if (IsGrounded() && playerVelocity.y < 0)

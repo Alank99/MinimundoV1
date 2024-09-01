@@ -356,7 +356,6 @@
 "Assets/Scripts/Creador de objetos/Esfera teselada.cs"
 "Assets/Scripts/Efectos de la fuente/Agua.cs"
 "Assets/Scripts/Efectos de la fuente/SplashAgua.cs"
-"Assets/Scripts/Evento/EventoTimeline.cs"
 "Assets/Scripts/Extras/ControladorTimeline.cs"
 "Assets/Scripts/Movimiento/AnimatorController.cs"
 "Assets/Scripts/Movimiento/Character.cs"

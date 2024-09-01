@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Script que se encarga de mover el objeto de forma tiro parabólico hacia un punto objetivo.
+//Teniendo en cuenta la altura máxima que alcanzará el objeto y si limite en el eje Z y X
+
 public class Agua : MonoBehaviour
 {
 
