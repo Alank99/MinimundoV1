@@ -1,1 +1,1 @@
-[Video de la explicaccion del minimundo](https://youtu.be/JMEh9JfGyc0)
+[Video de la explicacion del minimundo](https://youtu.be/JMEh9JfGyc0)
